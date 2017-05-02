@@ -22,10 +22,10 @@ function getJSON(){
 
 
 function showHeroDetails(details){
-  $('.row').html("")
+  $('.1').html("")
   var characterDetails = details.data.results.map(function(character){
-    $('.row').append(`<div class="col-md-6"><img src="${character.thumbnail.path}/detail.${character.thumbnail.extension}"></div><br/>`);
-    $('.row').append(`<div class="col-md-6"><h1>${character.name}</h1><br><p>${character.description}</p><a href="${character.urls[1].url} target="_blank">MoreInfo</a></div>`)
+    $('.1').append(`<div class="col-md-6 mts"><img src="${character.thumbnail.path}/detail.${character.thumbnail.extension}" class="imageResults"></div><br/>`);
+    $('.1').append(`<div class="col-md-6 mtxl"><h1>${character.name}</h1><br><p>${character.description}</p><a href="${character.urls[1].url} target="_blank">MoreInfo</a></div>`)
   })
   $('#button').on('click', function(){
       console.log(this.parentNode)
