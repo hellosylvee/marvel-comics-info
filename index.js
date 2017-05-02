@@ -3,6 +3,7 @@ $(document).ready(function(){
     getJSON()
     console.log("hey there")
   });
+
 });
 
 function getJSON(){
@@ -24,15 +25,10 @@ function showHeroDetails(details){
   $('.row').html("")
   var characterDetails = details.data.results.map(function(character){
     $('.row').append(`<div class="col-md-6"><img src="${character.thumbnail.path}/detail.${character.thumbnail.extension}"></div><br/>`);
-    $('.row').append(`<div class="col-md-6"><h1>${character.name}</h1><br><p>${character.description}</p></div><br/>`)
+    $('.row').append(`<div class="col-md-6"><h1>${character.name}</h1><br><p>${character.description}</p><a href="${character.urls[1].url} target="_blank">MoreInfo</a></div>`)
   })
+  $('#button').on('click', function(){
+      console.log(this.parentNode)
+    })
 
-  // return $('.col-md-4').append(`<img src="${characterDetails}">`)
 }
-
-// function hello(details){
-//   var characterDetails = details.data.results.map(function(character){
-//     debugger
-//     return $('.nameDisplay').append(`<h1>${character.name}</h1>`)
-//   })
-// }
