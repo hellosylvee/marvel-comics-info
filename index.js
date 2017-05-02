@@ -11,18 +11,20 @@ function getJSON(){
   $.ajax({
     url: url,
     method: 'GET',
-    success: function(details){
-      showHeroDetails(details);
+    success: showHeroDetails
       // hello(details);
-    }
-  })
+    })
 }
+
+
+
+
 
 function showHeroDetails(details){
   $('.row').html("")
   var characterDetails = details.data.results.map(function(character){
-    $('.row').append(`<div class="col-md-6"><img src="${character.thumbnail.path}/detail.${character.thumbnail.extension}"></div>`);
-    $('.row').append(`<div class="col-md-6"><h1>${character.name}</h1><br><h3>${character.description}</h3></div>`)
+    $('.row').append(`<div class="col-md-6"><img src="${character.thumbnail.path}/detail.${character.thumbnail.extension}"></div><br/>`);
+    $('.row').append(`<div class="col-md-6"><h1>${character.name}</h1><br><p>${character.description}</p></div><br/>`)
   })
 
   // return $('.col-md-4').append(`<img src="${characterDetails}">`)
